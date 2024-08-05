@@ -136,7 +136,10 @@ _NCrunch*
 .env
 
 # Visual Studio
-.vs
+.vs/
 
 # VSCode
-.vscode
+.vscode/
+
+#Migrations
+Migrations/

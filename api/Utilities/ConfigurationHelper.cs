@@ -25,8 +25,6 @@ namespace api.Utilities
                 connectionString = connectionString?.Replace($"{{{key}}}", Environment.GetEnvironmentVariable(key));
             });
 
-            Console.Write(connectionString);
-
             // Construct the connection string
             return connectionString;
         }
