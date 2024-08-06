@@ -140,6 +140,3 @@ _NCrunch*
 
 # VSCode
 .vscode/
-
-#Migrations
-Migrations/
