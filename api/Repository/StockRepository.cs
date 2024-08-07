@@ -62,6 +62,11 @@ namespace api.Repository
                 {
                     stocks = query.IsDescending ? stocks.OrderByDescending(s => s.Symbol) : stocks.OrderBy(s => s.Symbol);
                 }
+
+                if (query.SortBy.Equals("Company Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    stocks = query.IsDescending ? stocks.OrderByDescending(s => s.CompanyName) : stocks.OrderBy(s => s.CompanyName);
+                }
             }
 
             return await stocks.ToListAsync();
