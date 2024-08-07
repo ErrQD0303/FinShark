@@ -14,11 +14,9 @@ namespace api.Utilities
             DotEnv.Load();
         }
 
-        public static string? GetConnectionString(ConfigurationManager configuration)
+        public static string? CombineWithEnv(string? connectionString)
         {
             List<string> envKeys = ["DB_HOST", "DB_NAME", "DB_USER", "DB_PASSWORD"];
-
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             envKeys.ForEach((key) =>
             {

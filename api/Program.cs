@@ -12,10 +12,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(ConfigurationHelper.GetConnectionString(builder.Configuration));
+    options.UseSqlServer(ConfigurationHelper.CombineWithEnv(builder.Configuration.GetConnectionString("DefaultConnection")));
 });
 
 var app = builder.Build();
+
+// Apply pending migrations at startup
+using (var serviceScope = app.Services.CreateScope())
+{
+    var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate(); // Ensure the database created if not exist
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
