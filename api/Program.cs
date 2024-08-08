@@ -103,12 +103,12 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
-// Apply pending migrations at startup
+/* // Apply pending migrations at startup
 using (var serviceScope = app.Services.CreateScope())
 {
     var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     context.Database.Migrate(); // Ensure the database created if not exist
-}
+} */
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
