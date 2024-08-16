@@ -20,11 +20,16 @@ namespace api.Utilities
 
             envKeys.ForEach((key) =>
             {
-                connectionString = connectionString?.Replace($"{{{key}}}", Environment.GetEnvironmentVariable(key));
+                connectionString = connectionString?.Replace($"{{{key}}}", GetEnvValue(key));
             });
 
             // Construct the connection string
             return connectionString;
+        }
+
+        public static string? GetEnvValue(string key)
+        {
+            return Environment.GetEnvironmentVariable(key);
         }
     }
 }
