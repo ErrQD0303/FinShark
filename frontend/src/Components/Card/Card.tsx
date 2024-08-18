@@ -1,40 +1,34 @@
-import React, { SyntheticEvent } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import "./Card.css";
-import { CompanySearch } from "../../company";
-import AddPortfolio from "../Portfolio/AddPortfolio/AddPortfolio";
 
+// Use interface For data and type checking of Props
 interface Props {
-  id: string;
-  searchResult: CompanySearch;
-  onPortfolioCreate: (e: SyntheticEvent) => void;
+  companyName: string;
+  ticker: string;
+  price: number;
 }
 
 const Card: React.FC<Props> = ({
-  id,
-  searchResult,
-  onPortfolioCreate,
+  companyName,
+  ticker,
+  price,
 }: Props): JSX.Element => {
   return (
-    <div
-      className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"
-      key={id}
-      id={id}
-    >
-      <Link
-        to={`/company/${searchResult.symbol}/company-profile`}
-        className="font-bold text-center text-veryDarkViolet md:text-left"
-      >
-        {searchResult.name} ({searchResult.symbol})
-      </Link>
-      <p className="text-veryDarkBlue">{searchResult.currency}</p>
-      <p className="font-bold text-veryDarkBlue">
-        {searchResult.exchangeShortName} - {searchResult.stockExchange}
-      </p>
-      <AddPortfolio
-        onPortfolioCreate={onPortfolioCreate}
-        symbol={searchResult.symbol}
+    <div className="card">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtzw4tI-97axmZP8UD_eki8ho5mchg4ZMKaQ&s"
+        alt="Image"
       />
+      <div className="details">
+        <h2>
+          {companyName} ({ticker})
+        </h2>
+        <p>${price}</p>
+      </div>
+      <p className="info">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis,
+        architecto?
+      </p>
     </div>
   );
 };
