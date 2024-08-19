@@ -5,6 +5,7 @@ import SearchPage from "../../Pages/SearchPage/SearchPage";
 import CompanyPage from "../../Pages/CompanyPage/CompanyPage";
 import CompanyProfile from "../CompanyProfile/CompanyProfile";
 import IncomeStatement from "../IncomeStatement/IncomeStatement";
+import DesignGuide from "../../Pages/DesignGuide/DesignGuide";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "search",
         element: <SearchPage />,
+      },
+      {
+        path: "design-guide",
+        element: <DesignGuide />,
       },
       {
         path: "company/:ticker",
