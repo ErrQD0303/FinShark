@@ -1,0 +1,23 @@
+import React from "react";
+import { Outlet } from "react-router-dom";
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const CompanyDashboard = ({ children }: Props) => {
+  return (
+    <div className="bg-blueGray-100 relative w-full md:ml-64">
+      <div className="bg-lightBlue-500 relative pb-32 pt-20">
+        <div className="mx-auto w-full px-4 md:px-6">
+          <div>
+            <div className="flex flex-wrap">{children}</div>
+            <div className="flex flex-wrap">{<Outlet />}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CompanyDashboard;

@@ -27,7 +27,7 @@ const CardList: React.FC<Props> = ({
           );
         })
       ) : (
-        <h1>No results</h1>
+        <p className="my-3 text-center text-xl font-semibold">No results!</p>
       )}
     </>
   );

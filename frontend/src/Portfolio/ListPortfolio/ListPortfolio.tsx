@@ -8,21 +8,27 @@ interface Props {
 
 const ListPortfolio = ({ portfolioValues, onPortfolioDelete }: Props) => {
   return (
-    <>
-      <h3>My Portfolio</h3>
-      <ul>
-        {portfolioValues &&
+    <section id="portfolio">
+      <h2 className="my-3 text-center text-3xl font-semibold md:text-4xl">
+        My Portfolio
+      </h2>
+      <div className="relative mx-auto mb-5 flex max-w-5xl flex-col flex-wrap items-center space-y-10 px-10 md:flex-row md:gap-x-7 md:space-y-0 md:px-6">
+        {portfolioValues.length > 0 ? (
           portfolioValues.map((portfolioValue) => {
             return (
               <CardPortfolio
-                key={portfolioValue}
                 portfolioValue={portfolioValue}
                 onPortfolioDelete={onPortfolioDelete}
               />
             );
-          })}
-      </ul>
-    </>
+          })
+        ) : (
+          <h3 className="my-3 text-center text-xl font-semibold md:text-xl">
+            Your portfolio is empty.
+          </h3>
+        )}
+      </div>
+    </section>
   );
 };
 
