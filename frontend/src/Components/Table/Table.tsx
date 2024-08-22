@@ -8,7 +8,11 @@ const Table = ({ configs, data }: Props) => {
     return (
       <tr key={company.cik}>
         {configs.map((val: any) => {
-          return <td className="p-3">{val.render(company)}</td>;
+          return (
+            <td className="p-3" key={val.label}>
+              {val.render(company)}
+            </td>
+          );
         })}
       </tr>
     );
@@ -25,7 +29,7 @@ const Table = ({ configs, data }: Props) => {
   });
 
   return (
-    <div className="rounded-lg bg-white p-4 shadow sm:p-6 xl:p-8">
+    <div className="overflow-x-scroll rounded-lg bg-white p-4 shadow sm:p-6 xl:p-8">
       <table>
         <thead className="m-5 min-w-full divide-y divide-gray-200">
           {renderedHeaders}

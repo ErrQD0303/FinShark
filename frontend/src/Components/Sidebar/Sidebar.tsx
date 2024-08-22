@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "react-icons/fa";
 import { FaHome } from "react-icons/fa";
+import { SlGraph } from "react-icons/sl";
 
 type Props = {};
 
@@ -28,6 +29,27 @@ const Sidebar = (props: Props) => {
             >
               {<FaHome />}
               <h6 className="ml-3">Income Statement</h6>
+            </Link>
+            <Link
+              to="balance-sheet"
+              className="text-blueGray-500 text-medium block flex pb-4 pt-1 font-bold uppercase no-underline md:min-w-full"
+            >
+              {<FaHome />}
+              <h6 className="ml-3">Balance Sheet</h6>
+            </Link>
+            <Link
+              to="cashflow-statement"
+              className="text-blueGray-500 text-medium block flex pb-4 pt-1 font-bold uppercase no-underline md:min-w-full"
+            >
+              {<FaHome />}
+              <h6 className="ml-3">CashFlow Statement</h6>
+            </Link>
+            <Link
+              to="historical-dividend"
+              className="text-blueGray-500 text-medium block flex pb-4 pt-1 font-bold uppercase no-underline md:min-w-full"
+            >
+              <SlGraph />
+              <h6 className="ml-3">Historical Dividend</h6>
             </Link>
           </div>
         </div>

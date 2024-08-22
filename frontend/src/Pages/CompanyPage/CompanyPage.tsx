@@ -5,6 +5,10 @@ import { getCompanyProfile } from "../../api";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import CompanyDashboard from "../../Components/CompanyDashboard/CompanyDashboard";
 import Title from "../../Components/Title/Title";
+import Spinner from "../../Components/Spinner/Spinner";
+import CompFinder from "../../Components/CompFinder/CompFinder";
+import TenKFinder from "../../Components/TenKFinder/TenKFinder";
+import { formatLargeNonMonetaryNumber } from "../../Helpers/NumberFormatting";
 
 type Props = {};
 
@@ -26,10 +30,25 @@ const CompanyPage = (props: Props) => {
           <Sidebar />
           <CompanyDashboard ticker={ticker!}>
             <Title title="Company Name" subTitle={company.companyName}></Title>
+            <Title
+              title="Price"
+              subTitle={"$" + company.price.toString()}
+            ></Title>
+            <Title title="DCF" subTitle={"$" + company.dcf.toString()}></Title>
+            <Title title="Sector" subTitle={company.sector}></Title>
+            <Title
+              title="Market Cap"
+              subTitle={formatLargeNonMonetaryNumber(company.mktCap.toString())}
+            ></Title>
+            <CompFinder ticker={company.symbol} />
+            <TenKFinder ticker={company.symbol} />
+            <p className="text-medium m-4 mt-1 rounded bg-white p-3 text-gray-900 shadow">
+              {company.description}
+            </p>
           </CompanyDashboard>
         </div>
       ) : (
-        <div>Company not found!</div>
+        <Spinner />
       )}
     </>
   );
